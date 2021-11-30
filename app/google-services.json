@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "121686164952",
+    "project_id": "kistagram-d320f",
+    "storage_bucket": "kistagram-d320f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121686164952:android:205daa50297ccb75365ead",
+        "android_client_info": {
+          "package_name": "kkm.mjc.kistagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121686164952-cbv5541q59o5ceu1gflkbbldvbp9p4mq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kkm.mjc.kistagram",
+            "certificate_hash": "f5651382ed14ef1f418beaf1549a57fd4b36207c"
+          }
+        },
+        {
+          "client_id": "121686164952-oebf67ath9svsvpgen3cvj13t1qii074.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmgeZXSc0Ban8mvsl0X4jYyzJ2lemp5Ik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121686164952-oebf67ath9svsvpgen3cvj13t1qii074.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
