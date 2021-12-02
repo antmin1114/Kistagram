@@ -2,7 +2,7 @@ package kkm.mjc.kistagram;
 
 public class UserAccount {
 
-    String idToken, email, password, phone, name, nickname;
+    String idToken, email, password, phone, name, nickname, profile;
     int post, follower, following;
 
     public String getIdToken() {
@@ -51,6 +51,14 @@ public class UserAccount {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
     public int getPost() {

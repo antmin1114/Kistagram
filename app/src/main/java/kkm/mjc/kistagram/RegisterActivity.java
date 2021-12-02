@@ -1,23 +1,29 @@
 package kkm.mjc.kistagram;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Pattern;
 
@@ -68,12 +74,36 @@ public class RegisterActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {  // 입력이 끝났을 때 조치
 
                 email = s.toString().trim(); //공백제거
+
+                fDB.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            if (email.equals(dataSnapshot.child("email").getValue().toString())) {
+
+                                email_text_layout.setHint("이메일 중복입니다!");
+                                btnDisable();
+
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
                 if (email.matches(emailValidation) && s.length() > 0) {     //이메일 형태가 정상일 경우
 
                     email_text_layout.setHint("올바른 이메일 주소입니다!");
                     btnAble();
 
-                } else if(s.length() == 0) {
+
+                } else if (s.length() == 0) {
 
                     email_text_layout.setHint("이메일 주소를 입력해 주세요");
                     btnDisable();
@@ -88,16 +118,39 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+
         continue_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_right_exit);
+                fDB.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                account = new UserAccount();
-                account.setEmail(email);
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            if (email_edt.getText().toString().equals(dataSnapshot.child("email").getValue().toString())) {
+
+                                Toast.makeText(RegisterActivity.this, "이메일 중복입니다!", Toast.LENGTH_SHORT).show();
+                                return;
+
+                            }
+                        }
+
+                        Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_right_exit);
+
+                        account = new UserAccount();
+                        account.setEmail(email);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
 
@@ -141,4 +194,6 @@ public class RegisterActivity extends AppCompatActivity {
         email_text_layout.setHintTextColor(getResources().getColorStateList(R.color.colorGoogleSignInPressed));
 
     }
+
+
 }

@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="얼마 안남았어요\n인증만 하면됩니다!"
+        android:text="얼마 안남았어요\n인증 한번 합시다!"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:text="휴대폰 인증만 하면 끝이에요 :)"
+        android:text="휴대폰 인증을 해야해요 :)"
         app:layout_constraintTop_toBottomOf="@+id/guideline1"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -115,25 +115,10 @@
         android:layout_marginLeft="10dp"
         android:text="인증하기"
         android:textColor="@color/colorDivision"
-        android:background="@drawable/btn_shape_enable"
+        android:background="@drawable/btn_shape"
+        android:enabled="false"
         app:layout_constraintTop_toBottomOf="@+id/phone_text_layout"
         app:layout_constraintLeft_toRightOf="@+id/auth_text_layout"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/complete_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="가입하기"
-        android:textColor="@color/colorDivision"
-        android:enabled="false"
-        android:background="@drawable/btn_shape"
-        app:layout_constraintTop_toBottomOf="@+id/auth_text_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:visibility="invisible" />
 
     <LinearLayout
@@ -166,6 +151,13 @@
             android:layout_weight="1"
             android:src="@drawable/signup_number3_ing" />
 
+        <ImageView
+            android:id="@+id/number4_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/signup_number4" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -183,7 +175,7 @@
             android:text="이메일 입력" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
@@ -197,6 +189,13 @@
             android:text="휴대폰 인증"
             android:textColor="@color/colorSignupNumber"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="정보 입력" />
 
     </LinearLayout>
 

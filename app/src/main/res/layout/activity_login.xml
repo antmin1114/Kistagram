@@ -8,6 +8,7 @@
     tools:context=".LoginActivity">
 
     <ImageView
+        android:id="@+id/title_img"
         android:layout_above="@+id/signin_layout"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
             android:layout_marginRight="20dp">
 
         <EditText
+            android:id="@+id/email_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -41,6 +43,7 @@
             android:layout_marginRight="20dp">
 
         <EditText
+            android:id="@+id/pw_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

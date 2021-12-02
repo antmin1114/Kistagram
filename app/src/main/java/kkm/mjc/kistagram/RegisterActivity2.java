@@ -34,6 +34,7 @@ public class RegisterActivity2 extends AppCompatActivity {
 
         inflating();
 
+
         back_img.setOnClickListener(new View.OnClickListener() {    // 뒤로가기 이미지를 눌렀을 때
             @Override
             public void onClick(View v) {
@@ -63,10 +64,13 @@ public class RegisterActivity2 extends AppCompatActivity {
                     pw_text_layout.setHint("비밀번호는 6자 이상이어야 합니다!");
                     btnDisable(pw_text_layout);
 
-                } else if (pwSame && s.length() >= 6) {
+                } else if (s.length() >= 6) {
 
-                    pw_text_layout.setHint("비밀번호 확인을 해주세요!");
-                    btnDisable(pw_text_layout);
+                    pw_text_layout.setHint("올바른 비밀번호 입니다!");
+                    pw_text_layout.setHintTextColor(getResources().getColorStateList(R.color.colorSignupNumber));
+                    continue_btn.setEnabled(false);
+                    continue_btn.setTextColor(getResources().getColor(R.color.colorDivision));
+                    continue_btn.setBackgroundResource(R.drawable.btn_shape);
 
                 } else {
 
@@ -92,7 +96,7 @@ public class RegisterActivity2 extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                if (pw_edt.getText().toString().equals(s.toString())) {
+                if (pw_edt.getText().toString().equals(s.toString()) && pw_edt.length() >= 6) {
 
                     pwok_text_layout.setHint("비밀번호가 일치합니다!");
                     btnAble(pwok_text_layout);
