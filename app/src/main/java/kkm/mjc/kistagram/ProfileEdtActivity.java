@@ -99,6 +99,15 @@ public class ProfileEdtActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+        overridePendingTransition(R.anim.slide_down_enter, R.anim.slide_down_exit);
+
+    }
+
     private void inflating() {  // 인플레이팅 작업
 
         fAuth = FirebaseAuth.getInstance();

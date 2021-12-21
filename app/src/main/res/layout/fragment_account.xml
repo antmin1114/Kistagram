@@ -135,5 +135,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
+    <View
+        android:id="@+id/guide1_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorDivision"
+        app:layout_constraintTop_toBottomOf="@+id/profileEdt_btn"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="3"
+        app:layout_constraintTop_toBottomOf="@+id/guide1_view" >
+
+        <ImageView
+            android:id="@+id/feed1_img"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_columnWeight="1"
+            android:src="@drawable/ic_account" />
+        <ImageView
+            android:id="@+id/feed2_img"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_columnWeight="1"
+            android:src="@drawable/ic_account" />
+        <ImageView
+            android:id="@+id/feed3_img"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_columnWeight="1"
+            android:src="@drawable/ic_account" />
+
+
+    </GridLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
