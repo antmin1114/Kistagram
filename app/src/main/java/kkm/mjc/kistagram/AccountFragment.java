@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,9 @@ public class AccountFragment extends Fragment {
     private String userEmail;
     private Uri uriProfile;
 
+    private GridView gridView = null;
+    private FeedAdapter adapter = null;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +53,9 @@ public class AccountFragment extends Fragment {
         rootContext = view.getContext();
 
         inflating();
+
+        gridView = view.findViewById(R.id.gridView);
+        adapter = new FeedAdapter();
 
         userEmail = fAuth.getCurrentUser().getEmail();
 
@@ -78,8 +85,28 @@ public class AccountFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+
+
             }
         });
+
+        /*fDB.child(fAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+
+
+            }
+        });*/
+
+
 
         profileEdt_btn.setOnClickListener(new View.OnClickListener() {
             @Override
