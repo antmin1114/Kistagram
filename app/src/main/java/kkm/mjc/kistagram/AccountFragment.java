@@ -59,6 +59,26 @@ public class AccountFragment extends Fragment {
         gridView = view.findViewById(R.id.gridView);
         adapter = new FeedAdapter();
 
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/UserProfile%2Fantmin1114%40naver.com%2Fprofile.png?alt=media&token=20d5c503-04c7-420d-a88d-4b91157d68b7"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160715_.png?alt=media&token=d891603c-78f3-445a-8ca1-93def7077f43"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+
+        gridView.setAdapter(adapter);
+
         userEmail = fAuth.getCurrentUser().getEmail();
 
         fDB.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
