@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -112,7 +114,6 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
                 Intent intent = new Intent(rootContext, ProfileEdtActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_up_enter, R.anim.slide_up_exit);
@@ -135,7 +136,6 @@ public class AccountFragment extends Fragment {
         following_text = view.findViewById(R.id.following_text);
         profile_img = view.findViewById(R.id.profile_img);
         profileEdt_btn = view.findViewById(R.id.profileEdt_btn);
-
 
     }
 }
