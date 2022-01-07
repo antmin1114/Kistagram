@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/drawable/ic_baseline_near_me_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/activity_post_feed.xml" value="0.25364583333333335" />
         <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/activity_write_post.xml" value="0.25364583333333335" />
+        <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/feed_list_item.xml" value="0.25364583333333335" />
         <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/fragment_account.xml" value="0.25364583333333335" />
         <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/fragment_add_photo.xml" value="0.25364583333333335" />
         <entry key="..\:/mobile_home/mobile202002/Kistagram/app/src/main/res/layout/fragment_favorite_alarm.xml" value="0.25364583333333335" />

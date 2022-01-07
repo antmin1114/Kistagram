@@ -29,6 +29,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class AccountFragment extends Fragment {
 
     private View view;
@@ -37,6 +41,7 @@ public class AccountFragment extends Fragment {
     private TextView nickname_text, name_text, post_text, follower_text, following_text;
     private ImageView profile_img;
     private Button profileEdt_btn;
+    private FloatingActionButton addPhoto_fbtn;
 
     private FirebaseAuth fAuth;
     private DatabaseReference fDB;
@@ -59,25 +64,45 @@ public class AccountFragment extends Fragment {
         gridView = view.findViewById(R.id.gridView);
         adapter = new FeedAdapter();
 
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/UserProfile%2Fantmin1114%40naver.com%2Fprofile.png?alt=media&token=20d5c503-04c7-420d-a88d-4b91157d68b7"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160715_.png?alt=media&token=d891603c-78f3-445a-8ca1-93def7077f43"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
-        adapter.addItem(new FeedItem("https://firebasestorage.googleapis.com/v0/b/kistagram-d320f.appspot.com/o/Post%2Fantmin1114%40naver.com%2FIMAGE_20220103_160653_.png?alt=media&token=8df0f5ca-2b6c-4134-98ea-d013aa3047fd"));
+        // 피드 사진을 보여주기 위한 데이터 처리 리스너
+        fDB.child("UserAccount").child(fAuth.getCurrentUser().getUid()).child("postImage").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        gridView.setAdapter(adapter);
+                Map<String, Object> updateMap = new HashMap<>();
+                updateMap.put("post", snapshot.getChildrenCount());
+                String key = fAuth.getCurrentUser().getUid();
+                fDB.child("UserAccount").child(key).updateChildren(updateMap);
+
+                String[] list = new String[(int)snapshot.getChildrenCount()];
+                int i = 0;
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    if (i <= snapshot.getChildrenCount() - 1) {
+
+                        list[(int)(snapshot.getChildrenCount() - 1 - i)] = dataSnapshot.getValue().toString();
+                        i++;
+
+                    }
+
+                }
+
+                for (int j = 0; j < snapshot.getChildrenCount(); j++) {
+
+                    adapter.addItem(new FeedItem(list[j]));
+
+                }
+
+                gridView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         userEmail = fAuth.getCurrentUser().getEmail();
 
@@ -112,23 +137,6 @@ public class AccountFragment extends Fragment {
             }
         });
 
-        /*fDB.child(fAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-
-
-            }
-        });*/
-
-
 
         profileEdt_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +145,16 @@ public class AccountFragment extends Fragment {
                 Intent intent = new Intent(rootContext, ProfileEdtActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_up_enter, R.anim.slide_up_exit);
+
+            }
+        });
+
+        addPhoto_fbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), WritePostActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -156,6 +174,7 @@ public class AccountFragment extends Fragment {
         following_text = view.findViewById(R.id.following_text);
         profile_img = view.findViewById(R.id.profile_img);
         profileEdt_btn = view.findViewById(R.id.profileEdt_btn);
+        addPhoto_fbtn = view.findViewById(R.id.addPhoto_fbtn);
 
     }
 }

@@ -119,7 +119,7 @@ public class WritePostActivity extends AppCompatActivity {
 
                         fDB.child("UserAccount").child(fAuth.getCurrentUser().getUid()).child("postImage").push().setValue(uri.toString());
 
-                        fDB.child("UserAccount").child(fAuth.getCurrentUser().getUid()).child("post").addListenerForSingleValueEvent(new ValueEventListener() {
+/*                        fDB.child("UserAccount").child(fAuth.getCurrentUser().getUid()).child("post").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -138,7 +138,7 @@ public class WritePostActivity extends AppCompatActivity {
 
 
                             }
-                        });
+                        });*/
 
                     }
                 });

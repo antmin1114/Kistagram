@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PostFeedActivity"
+            android:exported="false" />
+        <activity
             android:name=".WritePostActivity"
             android:exported="false" />
         <activity android:name=".ProfileEdtActivity" />

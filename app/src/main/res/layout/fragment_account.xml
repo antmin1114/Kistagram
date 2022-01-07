@@ -178,7 +178,7 @@
 
     </GridView>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addPhoto_fbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
         app:srcCompat="@drawable/ic_baseline_add_24"
         app:maxImageSize="30dp"
         app:borderWidth="0dp"
-        android:backgroundTint="@color/colorSignupNumber"/>-->
+        android:backgroundTint="@color/colorSignupNumber"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

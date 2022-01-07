@@ -50,18 +50,24 @@ public class FeedAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.gridview_list_item, parent, false);
 
             ImageView image_img = convertView.findViewById(R.id.image_img);
-
             Glide.with(context).load(Uri.parse(feedItem.getStrImgUri())).apply(new RequestOptions().centerCrop()).into(image_img);
+        }
 
-        } else {
+        else {
             View view = new View(context);
             view = convertView;
+
+            ImageView image_img = view.findViewById(R.id.image_img);
+            Glide.with(context).load(Uri.parse(feedItem.getStrImgUri())).apply(new RequestOptions().centerCrop()).into(image_img);
         }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, position + " 번 입니다! ", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context.getApplicationContext(), position + "입니다.", Toast.LENGTH_SHORT).show();
+
+
+
             }
         });
 
