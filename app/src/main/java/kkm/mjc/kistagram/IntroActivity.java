@@ -1,3 +1,4 @@
+/*
 package kkm.mjc.kistagram;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,3 +31,4 @@ public class IntroActivity extends AppCompatActivity {
     }
 
 }
+*/

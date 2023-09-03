@@ -19,14 +19,14 @@
             android:name=".WritePostActivity"
             android:exported="false" />
         <activity android:name=".ProfileEdtActivity" />
-        <activity android:name=".IntroActivity">
+        <activity android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity4" />
         <activity android:name=".RegisterActivity3" />

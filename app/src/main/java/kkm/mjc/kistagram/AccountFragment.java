@@ -104,6 +104,8 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        GridView gridView = view.findViewById(R.id.gridView);
+
         userEmail = fAuth.getCurrentUser().getEmail();
 
         fDB.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
